@@ -25,13 +25,17 @@ A Quickshell wallpaper picker for Hyprland with support for image and video wall
 
 ## Requirements
 
-- Hyprland
-- Quickshell
-- `awww`
-- `mpvpaper`
-- `matugen` (optional, for dynamic colors)
-- Waybar (optional)
+Core:
+- `Hyprland`
+- `Quickshell`
 
+Wallpaper handling:
+- `awww` (image transitions)
+- `mpvpaper` (video wallpapers)
+
+Optional:
+- `matugen` (dynamic colors)
+- `Waybar` (auto reload support)
 ---
 
 ## Installation
