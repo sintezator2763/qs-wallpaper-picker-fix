@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import Quickshell
 import "."
+import "WindowRegistry.js" as LayoutMath
 
 FloatingWindow {
     id: root
@@ -15,8 +16,13 @@ FloatingWindow {
         }
     }
 
-    implicitWidth: Math.round(Screen.width * 0.94)
-    implicitHeight: Math.round(Screen.height * 0.30)
+    // Always spans the full monitor width. Height uses the same
+    // width-based scale formula the internal UI (Scaler.qml) uses for its
+    // own element sizing, so the window's outer size always matches what
+    // the layout inside actually needs - it never gets squished by an
+    // outer size that doesn't match the content's natural size.
+    implicitWidth: Screen.width
+    implicitHeight: Math.round(LayoutMath.s(650, LayoutMath.getScale(Screen.width)))
 
     Shortcut {
         sequence: "Escape"
