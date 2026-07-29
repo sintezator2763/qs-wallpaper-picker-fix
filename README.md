@@ -37,6 +37,7 @@ Wallpaper handling:
 - `mpvpaper` (video wallpapers)
 - `imagemagick` (image preview generation)
 - `ffmpeg` (video preview generation)
+- `inotify-tools` (wallpaper sync)
 
 Optional:
 - `matugen` (dynamic colors)
@@ -85,7 +86,7 @@ quickshell -p Main.qml
 Example keybind:
 
 ```ini
-bind = SUPER, W, exec, quickshell -p ~/path/to/qs-wallpaper-picker/Main.qml
+bind = SUPER, W, exec, ~/path/to/qs-wallpaper-picker-fix/scripts/launch_picker.sh
 ```
 
 ---
