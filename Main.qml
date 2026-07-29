@@ -24,11 +24,6 @@ FloatingWindow {
     implicitWidth: Screen.width
     implicitHeight: Math.round(LayoutMath.s(650, LayoutMath.getScale(Screen.width)))
 
-    Shortcut {
-        sequence: "Escape"
-        onActivated: Qt.quit()
-    }
-
     WallpaperPicker {
         anchors.fill: parent
         focus: true
