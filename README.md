@@ -1,5 +1,5 @@
 > [!NOTE]
-> This repository is a fork of [Wallpaper Picker](https://github.com/magetsu002/qs-wallpaper-picker) by **@magetsu002**. All credits for the original project belong to the original author. This fork includes a custom patch that adds wallpaper synchronization. Also it might be buggy.
+> This repository is a fork of [Wallpaper Picker](https://github.com/magetsu002/qs-wallpaper-picker) by **@magetsu002**. All credits for the original project belong to the original author. This fork includes custom patches that add wallpaper synchronization, multi-instance prevention and some other fixes. It might be buggy.
 
 # qs-wallpaper-picker
 
