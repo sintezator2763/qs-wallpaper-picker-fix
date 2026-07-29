@@ -1,3 +1,6 @@
+> [!NOTE]
+> This repository is a fork of [Wallpaper Picker](https://github.com/magetsu002) by **@magetsu002**. All credits for the original project belong to the original author. This fork includes a custom patch that adds wallpaper synchronization.
+
 # qs-wallpaper-picker
 
 A Quickshell wallpaper picker for Hyprland with support for image and video wallpapers, smooth animated transitions, and optional dynamic theming powered by matugen.
