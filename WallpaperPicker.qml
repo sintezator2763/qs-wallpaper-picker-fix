@@ -381,6 +381,29 @@ Item {
         srcModel.folder = "file://" + window.srcDir;
     }
 
+    // -------------------------------------------------------------------------
+    // THUMBNAIL SYNC / LIVE WATCHER
+    // -------------------------------------------------------------------------
+    // Keeps ~/.cache/wallpaper_picker/thumbs in sync with the wallpaper
+    // directory: generates missing thumbnails and removes ones whose source
+    // wallpaper was deleted. The watcher script uses a lock file so launching
+    // it here on every startup is safe - it will just no-op (after a quick
+    // one-off sync) if an instance is already running in the background.
+    function ensureThumbnailWatcher() {
+        let watchScript = Qt.resolvedUrl("scripts/watch_wallpapers.sh").toString();
+        if (watchScript.startsWith("file://")) {
+            watchScript = decodeURIComponent(watchScript.substring(7));
+        }
+
+        const escapeBash = (str) => String(str).replace(/(["\\$`])/g, '\\$1');
+        const escScript = escapeBash(watchScript);
+        const escWallDir = escapeBash(window.srcDir);
+        const escThumbDir = escapeBash(decodeURIComponent(window.thumbDir.replace("file://", "")));
+
+        const cmd = `nohup bash "${escScript}" "${escWallDir}" "${escThumbDir}" >/tmp/wallpaper-picker-watch.log 2>&1 & disown`;
+        Quickshell.execDetached(["bash", "-c", cmd]);
+    }
+
     function isDownloaded(name) {
         if (!name) return false;
         for (let i = 0; i < srcModel.count; i++) {
@@ -1483,7 +1506,8 @@ Item {
 
     Component.onCompleted: {
         Quickshell.execDetached(["bash", "-c", "mkdir -p '" + decodeURIComponent(window.searchDir.replace("file://", "")) + "'"]);
-        
+        window.ensureThumbnailWatcher();
+
         if (searchState.searched) {
             searchInput.text = searchState.query;
             window.searchQuery = searchState.query;
