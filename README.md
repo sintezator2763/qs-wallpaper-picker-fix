@@ -35,6 +35,8 @@ Core:
 Wallpaper handling:
 - `awww` (image transitions)
 - `mpvpaper` (video wallpapers)
+- `imagemagick` (image preview generation)
+- `ffmpeg` (video preview generation)
 
 Optional:
 - `matugen` (dynamic colors)
