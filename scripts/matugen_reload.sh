@@ -31,7 +31,7 @@ echo "BEFORE HYPR:   $before_hypr" >> "$LOG"
 echo "BEFORE WAYBAR: $before_waybar" >> "$LOG"
 
 if [ "$ENABLE_DYNAMIC_COLORS" = "1" ] && [ "$ENABLE_MATUGEN" = "1" ] && command -v matugen >/dev/null 2>&1 && [ -n "$WALL" ] && [ -f "$WALL" ]; then
-    matugen image "$WALL" --type "${MATUGEN_SCHEME_TYPE:-scheme-content}" --contrast "${MATUGEN_CONTRAST:-0.3}" >/tmp/matugen-run.log 2>&1 || true
+    matugen image "$WALL" --type "${MATUGEN_SCHEME_TYPE:-scheme-vibrant}" --contrast "${MATUGEN_CONTRAST:-0}" >/tmp/matugen-run.log 2>&1 || true
 fi
 
 if [ "$ENABLE_KITTY_RELOAD" = "1" ]; then
